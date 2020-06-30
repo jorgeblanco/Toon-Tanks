@@ -27,11 +27,4 @@ private:
 public:
 	// Sets default values for this pawn's properties
 	APawnBase();
-	
-	virtual void Tick(float DeltaTime) override;
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 };
