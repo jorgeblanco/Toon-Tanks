@@ -25,6 +25,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void HandleDestruction() override;
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
@@ -39,6 +40,8 @@ private:
 
 	FVector MoveDirection;
 	FQuat RotationDirection;
+	APlayerController* PlayerController;
+	FHitResult TraceHitResult;
 
 	void CalculateMoveInput(float Value);
 	void CalculateRotateInput(float Value);
