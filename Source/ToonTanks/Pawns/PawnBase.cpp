@@ -4,6 +4,7 @@
 #include "PawnBase.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "ToonTanks/Actors/ProjectileBase.h"
 
 // Sets default values
 APawnBase::APawnBase()
@@ -40,7 +41,18 @@ void APawnBase::RotateTurret(FVector LookAtTarget)
 void APawnBase::Fire()
 {
 	// Get projectile spawn point location and rotation, then spawn projectile class
-	UE_LOG(LogTemp, Warning, TEXT("Fire!"));
+	if (!Projectile)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No projectile class defined for %s"), *GetOwner()->GetName());
+		return;
+	}
+
+	AProjectileBase* TempProjectile = GetWorld()->SpawnActor<AProjectileBase>(
+		Projectile,
+		ProjectileSpawnPoint->GetComponentLocation(),
+		ProjectileSpawnPoint->GetComponentRotation()
+	);
+	TempProjectile->SetOwner(this);
 }
 
 void APawnBase::HandleDestruction()
