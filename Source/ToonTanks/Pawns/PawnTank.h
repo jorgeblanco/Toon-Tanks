@@ -21,6 +21,7 @@ public:
 	APawnTank();
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	bool IsAlive() const;
 
 protected:
 	// Called when the game starts or when spawned
@@ -42,6 +43,7 @@ private:
 	FQuat RotationDirection;
 	APlayerController* PlayerController;
 	FHitResult TraceHitResult;
+	bool bAlive = true;
 
 	void CalculateMoveInput(float Value);
 	void CalculateRotateInput(float Value);

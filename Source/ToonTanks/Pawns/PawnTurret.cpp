@@ -33,7 +33,7 @@ void APawnTurret::HandleDestruction()
 void APawnTurret::CheckFireCondition()
 {
 	// If player == null, bail
-	if (!PlayerPawn)
+	if (!PlayerPawn || !PlayerPawn->IsAlive())
 	{
 		return;
 	}
@@ -52,7 +52,7 @@ float APawnTurret::GetDistanceToPlayer() const
 		return 0.f;
 	}
 
-	float Distance = (PlayerPawn->GetActorLocation() - GetActorLocation()).Size();
+	const float Distance = (PlayerPawn->GetActorLocation() - GetActorLocation()).Size();
 	return Distance;
 }
 
@@ -65,7 +65,7 @@ void APawnTurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!PlayerPawn || GetDistanceToPlayer() > FireRange)
+	if (!PlayerPawn || !PlayerPawn->IsAlive() || GetDistanceToPlayer() > FireRange)
 	{
 		return;
 	}
