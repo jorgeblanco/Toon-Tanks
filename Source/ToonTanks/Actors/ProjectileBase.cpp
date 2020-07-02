@@ -39,6 +39,15 @@ void AProjectileBase::OnHit(
 		);
 	}
 	
+	if (HitSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(
+			this,
+			HitSound,
+			GetActorLocation()
+		);
+	}
+	
 	Destroy();
 	
 }
@@ -66,6 +75,14 @@ AProjectileBase::AProjectileBase()
 void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	if (LaunchSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(
+			this,
+			LaunchSound,
+			GetActorLocation()
+		);
+	}
 }
 

@@ -32,6 +32,8 @@ private:
 	TSubclassOf<AProjectileBase> Projectile;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* DeathParticles;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* DeathSound;
 
 public:
 	// Sets default values for this pawn's properties
