@@ -85,4 +85,9 @@ void APawnBase::HandleDestruction()
 			GetActorLocation()
 		);
 	}
+	
+	if (DeathShake)
+	{
+		GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(DeathShake);
+	}
 }

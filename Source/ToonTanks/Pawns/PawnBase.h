@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-// #include "Components/CapsuleComponent.h"
 #include "GameFramework/Pawn.h"
 #include "PawnBase.generated.h"
 
@@ -34,6 +33,8 @@ private:
 	UParticleSystem* DeathParticles;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	USoundBase* DeathSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UCameraShake> DeathShake;
 
 public:
 	// Sets default values for this pawn's properties

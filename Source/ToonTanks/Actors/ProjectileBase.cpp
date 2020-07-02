@@ -47,6 +47,11 @@ void AProjectileBase::OnHit(
 			GetActorLocation()
 		);
 	}
+
+	if (HitShake)
+	{
+		GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(HitShake);
+	}
 	
 	Destroy();
 	

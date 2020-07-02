@@ -37,6 +37,8 @@ private:
 	USoundBase* LaunchSound;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	USoundBase* HitSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UCameraShake> HitShake;
 
 	UFUNCTION()
 	void OnHit(
